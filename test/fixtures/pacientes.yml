@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Pessoa: one
+  medico_resp: MyString
+  cuidador: MyString
+  grau_esco_cuidador: MyString
+
+two:
+  Pessoa: two
+  medico_resp: MyString
+  cuidador: MyString
+  grau_esco_cuidador: MyString

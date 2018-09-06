@@ -1,0 +1,72 @@
+<%= form_with(model: endereco, local: true) do |form| %>
+  <% if endereco.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(endereco.errors.count, "error") %> prohibited this endereco from being saved:</h2>
+
+      <ul>
+      <% endereco.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Pessoa_id %>
+    <%= form.text_field :Pessoa_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cep %>
+    <%= form.number_field :cep %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pais %>
+    <%= form.text_field :pais %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uf %>
+    <%= form.text_field :uf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cidade %>
+    <%= form.text_field :cidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rua %>
+    <%= form.text_field :rua %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.number_field :numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :complemento %>
+    <%= form.text_area :complemento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_moradia %>
+    <%= form.text_field :tipo_moradia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_comodos %>
+    <%= form.number_field :num_comodos %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

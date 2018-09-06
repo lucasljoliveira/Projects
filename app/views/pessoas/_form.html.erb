@@ -1,0 +1,76 @@
+<%= form_with(model: pessoa, html: {class: "smart-green"}) do |form| %>
+  <% if pessoa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pessoa.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+
+      <ul>
+      <% pessoa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <h1>Nova Pessoa</h1>
+
+  <div class="field">
+    <%= form.label "crefito" %>
+    <%= form.funcionario.text_field :num_crefito %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone %>
+
+  </div>
+  
+  <div class="field">
+    <%= form.label "Nome do pai" %>
+    <%= form.text_field :nome_pai %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Nome da mãe" %>
+    <%= form.text_field :nome_mae %>
+  </div>
+  <div></div>
+  <div class="field">
+    <%= form.label "Data de nascimento" %>
+    <%= form.date_select(:data_nasc, :start_year => Date.current.year, :end_year => 1900) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sexo %>
+    <%= form.select :sexo, options_for_sexo(@pessoa.sexo) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cor %>
+    <%= form.select :cor, options_for_cor(@pessoa.cor) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grau_escolaridade %>
+    <%= form.select :grau_escolaridade, options_for_escolaridade(@pessoa.grau_escolaridade) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grau_escolaridade %>
+    <%= form.select :grau_escolaridade, options_for_escolaridade(@pessoa.grau_escolaridade) %>
+  </div>
+  
+  
+  <%= form.fields_for :funcionario do |funcionario_fields| %>
+    num_crefito: <%= funcionario_fields.text_field :num_crefito %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "Enviar", class: "button" %>
+    <%= link_to 'Voltar', pessoas_path, class: "button" %>
+  </div>
+<% end %>
